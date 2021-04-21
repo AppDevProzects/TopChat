@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">TopChat</string>
+    <string name="number_sample">Verify +91-1234567890</string>
+    <string name="subHead_otp">OTP sent to entered phone number</string>
 </resources>
