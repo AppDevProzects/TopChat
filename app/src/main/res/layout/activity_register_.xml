@@ -1,0 +1,213 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardview1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/skyblue"
+            android:outlineSpotShadowColor="@color/black"
+            app:cardCornerRadius="8dp">
+
+            <TextView
+                android:id="@+id/heading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TALK-CHAT"
+                android:layout_gravity="center_horizontal"
+                android:textSize="20dp"
+                android:fontFamily="cursive"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/white">
+            </TextView>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/userImage"
+            android:layout_width="wrap_content"
+            android:layout_height="110dp"
+            android:layout_below="@id/heading"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="60dp"
+            android:layout_marginBottom="30dp"
+            android:src="@drawable/facecircle">
+        </de.hdodenhof.circleimageview.CircleImageView>
+
+        </androidx.cardview.widget.CardView>
+        
+        <TextView
+            android:id="@+id/userDataText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="USER DATA"
+            android:layout_below="@+id/cardview1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:textSize="20sp"
+            android:fontFamily="cursive">
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="First Name"
+            android:layout_below="@+id/userDataText"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="29dp"
+            android:textSize="20sp"
+            android:fontFamily="cursive">
+        </TextView>
+
+        <EditText
+            android:id="@+id/userFirstname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/cardview1"
+            android:layout_marginTop="75dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp">
+
+        </EditText>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Last Name"
+            android:layout_below="@+id/userFirstname"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="29dp"
+            android:textSize="20sp"
+            android:fontFamily="cursive">
+        </TextView>
+
+        <EditText
+            android:id="@+id/userLastName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/userFirstname"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="25dp">
+
+        </EditText>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gender"
+            android:layout_below="@+id/userLastName"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="29dp"
+            android:textSize="20sp"
+            android:fontFamily="cursive">
+        </TextView>
+
+        <Spinner
+            android:id="@+id/gender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/userLastName"
+            android:layout_marginBottom="15dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginLeft="25dp"></Spinner>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Day"
+            android:layout_below="@+id/gender"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="29dp"
+            android:textSize="20sp"
+            android:fontFamily="cursive">
+        </TextView>
+
+        <Spinner
+            android:id="@+id/dayOfBirth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/gender"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginLeft="25dp"></Spinner>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Month"
+            android:layout_toRightOf="@id/dayOfBirth"
+            android:layout_below="@+id/gender"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="25dp"
+            android:textSize="20sp"
+            android:fontFamily="cursive">
+        </TextView>
+
+        <Spinner
+            android:id="@+id/monthOfBirth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/dayOfBirth"
+            android:layout_below="@+id/gender"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginLeft="25dp"></Spinner>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Year"
+            android:layout_toRightOf="@id/monthOfBirth"
+            android:layout_below="@+id/gender"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="29dp"
+            android:textSize="20sp"
+            android:fontFamily="cursive">
+        </TextView>
+
+        <Spinner
+            android:id="@+id/yearOfBirth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/monthOfBirth"
+            android:layout_below="@+id/gender"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginLeft="25dp"></Spinner>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:layout_below="@+id/dayOfBirth"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="29dp"
+            android:textSize="20sp"
+            android:fontFamily="cursive">
+        </TextView>
+
+        <EditText
+            android:id="@+id/userEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/dayOfBirth"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp">
+        </EditText>
+
+
+
+
+    </RelativeLayout>
+
+</ScrollView>
