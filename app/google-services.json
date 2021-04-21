@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "926452409679",
+    "project_id": "talk-chat-2b14c",
+    "storage_bucket": "talk-chat-2b14c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:926452409679:android:39d90f88be46bbd085113a",
+        "android_client_info": {
+          "package_name": "app.tarsun.topchat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "926452409679-1cnj45b3oh5jnkd6gphhkb65vamdivu4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "app.tarsun.topchat",
+            "certificate_hash": "14d1c446901f97b59312a235c3fa067c913375b3"
+          }
+        },
+        {
+          "client_id": "926452409679-grn82ba8hbsvda5t7b5172l47d5igceh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyANvKjAyXp5eY90t5Cs4Hz2Uqa3e98iyaw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "926452409679-grn82ba8hbsvda5t7b5172l47d5igceh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
