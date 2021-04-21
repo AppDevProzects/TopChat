@@ -55,40 +55,61 @@
         android:id="@+id/number_palette"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="40dp"
         app:cardCornerRadius="20dp"
         app:cardElevation="4dp"
         app:layout_constraintEnd_toEndOf="@+id/subHead"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.348"
         app:layout_constraintStart_toStartOf="@+id/subHead"
         app:layout_constraintTop_toBottomOf="@+id/subHead">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:orientation="vertical">
 
-            <EditText
-                android:id="@+id/editTextPhone"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_margin="5dp"
-                android:hint="Enter your mobile number"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:background="@drawable/outline"
-                android:ems="16"
-                android:paddingStart="8dp"
-                android:inputType="phone" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5sp"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:gravity="center">
+
+                <com.hbb20.CountryCodePicker
+                    android:id="@+id/ccp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:background="@drawable/outline"
+                    app:ccp_autoDetectCountry="true" />
+
+                <EditText
+                    android:id="@+id/editTextPhone"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="4dp"
+                    android:background="@drawable/outline"
+                    android:layout_weight="3"
+                    android:hint="Enter mobile number"
+                    android:inputType="phone"
+                    android:paddingStart="8dp" />
+
+            </LinearLayout>
+
 
             <Button
                 android:id="@+id/continueBtn"
-                android:layout_width="match_parent"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
-                android:backgroundTint="@color/purple_500"
+                android:layout_marginTop="6dp"
+                android:backgroundTint="@color/purple_700"
                 android:text="Continue" />
 
 

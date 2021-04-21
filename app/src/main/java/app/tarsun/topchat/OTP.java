@@ -16,7 +16,8 @@ public class OTP extends AppCompatActivity {
         binding = ActivityOTPBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        String phoneNumber = getIntent().getStringExtra("phoneNumber");
-        binding.VerificationTitle.setText("Verify "+phoneNumber);
+        String phoneNumber = getIntent().getStringExtra("code")+getIntent().getStringExtra("number");
+        //System.out.println(getIntent().getStringExtra("code"));
+        binding.VerificationTitle.setText("Verify "+getIntent().getStringExtra("code")+"-"+getIntent().getStringExtra("number"));
     }
 }
