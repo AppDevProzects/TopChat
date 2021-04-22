@@ -54,8 +54,11 @@ dependencies {
     //OTP-pin view
     implementation 'com.github.mukeshsolanki:android-otpview-pinview:2.1.2'
     //firebase
-    implementation platform('com.google.firebase:firebase-bom:27.0.0')
+    implementation platform('com.google.firebase:firebase-bom:27.1.0')
     implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.google.firebase:firebase-auth'
     //to get country code
     implementation 'com.hbb20:ccp:2.3.1'
+
+
 }

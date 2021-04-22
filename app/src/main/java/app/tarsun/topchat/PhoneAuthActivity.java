@@ -17,8 +17,9 @@ public class PhoneAuthActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityPhoneAuthBinding.inflate(getLayoutInflater());
-
         setContentView(binding.getRoot());
+
+        binding.editTextPhone.requestFocus();
 
         binding.continueBtn.setOnClickListener(new View.OnClickListener() {
             @Override

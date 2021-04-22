@@ -23,7 +23,7 @@
             android:layout_width="200dp"
             android:layout_height="200dp"
             android:layout_gravity="center"
-            android:layout_margin="16dp"
+            android:layout_margin="40dp"
             android:src="@drawable/authpageimg"
             app:civ_border_color="#AEADAD"
             app:civ_border_width="2dp" />
@@ -55,6 +55,7 @@
         android:paddingRight="10dp"
         android:text="@string/subHead_otp"
         android:textSize="16sp"
+        android:textColor="@color/grey"
         app:layout_constraintEnd_toEndOf="@+id/VerificationTitle"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/VerificationTitle"
@@ -62,11 +63,13 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/number_palette"
+        android:background="@color/white"
+        android:backgroundTint="@color/white"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="40dp"
         app:cardCornerRadius="20dp"
         app:cardElevation="4dp"
         app:layout_constraintEnd_toEndOf="@+id/subHead"
@@ -77,7 +80,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_margin="10dp"
+            android:layout_margin="5dp"
             android:orientation="vertical">
 
             <com.mukesh.OtpView
@@ -85,6 +88,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:inputType="number"
+                android:clickable="true"
                 android:itemBackground="@color/fade"
                 android:textColor="@android:color/black"
                 app:OtpItemCount="6"
