@@ -9,9 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TopChat">
-        <activity android:name=".Register_Activity"></activity>
-        <activity android:name=".Intropage" />
+
+        <activity android:name=".register_Activity"></activity>
+        <activity android:name=".intropage" />
         <activity android:name=".MainActivity">
+
+        <activity android:name=".OTP"></activity>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".PhoneAuthActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
