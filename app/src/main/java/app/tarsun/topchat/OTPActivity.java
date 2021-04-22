@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -39,6 +40,7 @@ public class OTPActivity extends AppCompatActivity {
 
         auth = FirebaseAuth.getInstance();
 
+
         //dialog managing
         dialog = new ProgressDialog(this);
         dialog.setMessage("Sending OTP....");
@@ -61,7 +63,7 @@ public class OTPActivity extends AppCompatActivity {
 
                             @Override
                             public void onVerificationFailed(@NonNull FirebaseException e) {
-
+                                Log.d("Error","h   s"+e);
                             }
 
                             @Override
@@ -85,9 +87,9 @@ public class OTPActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            Toast.makeText(OTPActivity.this, "Logged In", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(OTPActivity.this, " Verified ", Toast.LENGTH_SHORT).show();
                         }else{
-                            Toast.makeText(OTPActivity.this, "Failed", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(OTPActivity.this, " Failed to verify ", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -97,8 +99,13 @@ public class OTPActivity extends AppCompatActivity {
         binding.continueBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(OTPActivity.this,Register_Activity.class));
-                finish();
+                if(!(auth.getCurrentUser().getUid().equals(""))){
+                    startActivity(new Intent(OTPActivity.this,Register_Activity.class));
+                    finish();
+                }else{
+                    Toast.makeText(OTPActivity.this, "Please OTP and verify", Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
     }
