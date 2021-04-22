@@ -22,27 +22,34 @@
                 android:id="@+id/heading"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TALK-CHAT"
                 android:layout_gravity="center_horizontal"
-                android:textSize="20dp"
-                android:fontFamily="cursive"
                 android:layout_marginTop="10dp"
-                android:textColor="@color/white">
-            </TextView>
+                android:fontFamily="cursive"
+                android:text="TALK-CHAT"
+                android:textColor="@color/white"
+                android:textSize="20dp"></TextView>
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/userImage"
-            android:layout_width="wrap_content"
-            android:layout_height="110dp"
-            android:layout_below="@id/heading"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="60dp"
-            android:layout_marginBottom="30dp"
-            android:src="@drawable/facecircle">
-        </de.hdodenhof.circleimageview.CircleImageView>
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/userImage"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="60dp"
+                android:layout_marginBottom="30dp"
+                android:src="@drawable/facecircle"></de.hdodenhof.circleimageview.CircleImageView>
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/editImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="130dp"
+                android:backgroundTint="@color/yellow"
+                android:src="@drawable/ic_baseline_create_24"></com.google.android.material.floatingactionbutton.FloatingActionButton>
 
         </androidx.cardview.widget.CardView>
-        
+
         <TextView
             android:id="@+id/userDataText"
             android:layout_width="wrap_content"
@@ -120,75 +127,23 @@
             android:layout_marginTop="35dp"
             android:layout_marginLeft="25dp"></Spinner>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Day"
-            android:layout_below="@+id/gender"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="29dp"
-            android:textSize="20sp"
-            android:fontFamily="cursive">
-        </TextView>
-
-        <Spinner
-            android:id="@+id/dayOfBirth"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/gender"
-            android:layout_marginRight="25dp"
-            android:layout_marginTop="35dp"
-            android:layout_marginLeft="25dp"></Spinner>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Month"
-            android:layout_toRightOf="@id/dayOfBirth"
-            android:layout_below="@+id/gender"
-            android:layout_marginTop="10dp"
+        <EditText
+            android:id="@+id/dateOfBirth"
+            android:layout_width="match_parent"
             android:layout_marginLeft="25dp"
-            android:textSize="20sp"
-            android:fontFamily="cursive">
-        </TextView>
-
-        <Spinner
-            android:id="@+id/monthOfBirth"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/dayOfBirth"
-            android:layout_below="@+id/gender"
             android:layout_marginRight="25dp"
-            android:layout_marginTop="35dp"
-            android:layout_marginLeft="25dp"></Spinner>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Year"
-            android:layout_toRightOf="@id/monthOfBirth"
-            android:layout_below="@+id/gender"
             android:layout_marginTop="10dp"
-            android:layout_marginLeft="29dp"
-            android:textSize="20sp"
-            android:fontFamily="cursive">
-        </TextView>
-
-        <Spinner
-            android:id="@+id/yearOfBirth"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/monthOfBirth"
-            android:layout_below="@+id/gender"
-            android:layout_marginRight="25dp"
-            android:layout_marginTop="35dp"
-            android:layout_marginLeft="25dp"></Spinner>
+            android:hint="Date Of Birth"
+            android:layout_below="@id/gender"
+            android:layout_centerHorizontal="true">
+        </EditText>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Email"
-            android:layout_below="@+id/dayOfBirth"
+            android:layout_below="@+id/dateOfBirth"
             android:layout_marginTop="30dp"
             android:layout_marginLeft="29dp"
             android:textSize="20sp"
@@ -199,14 +154,24 @@
             android:id="@+id/userEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/dayOfBirth"
+            android:layout_below="@+id/dateOfBirth"
             android:layout_marginTop="50dp"
             android:layout_marginLeft="25dp"
             android:layout_marginRight="25dp">
         </EditText>
 
-
-
+        <Button
+            android:id="@+id/submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Submit"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/skyblue"
+            android:layout_below="@+id/userEmail"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="40dp"
+            android:layout_marginTop="25dp">
+        </Button>
 
     </RelativeLayout>
 
