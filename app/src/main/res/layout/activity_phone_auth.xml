@@ -7,19 +7,30 @@
     tools:context=".PhoneAuthActivity"
     android:background="@color/white">
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/circleImageView"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-
-        android:layout_margin="16dp"
-        android:src="@drawable/authpageimg"
-        app:civ_border_color="#AEADAD"
-        app:civ_border_width="2dp"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/title_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/skyblue"
+        android:outlineSpotShadowColor="@color/black"
+        app:cardCornerRadius="5dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/circleImageView"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:layout_margin="40dp"
+            android:src="@drawable/authpageimg"
+            app:civ_border_color="#AEADAD"
+            app:civ_border_width="2dp" />
+
+    </androidx.cardview.widget.CardView>
+
+
 
 
     <TextView
@@ -33,15 +44,16 @@
         android:textColor="@color/black"
         android:textSize="26dp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/circleImageView"
-        app:layout_constraintStart_toStartOf="@+id/circleImageView"
-        app:layout_constraintTop_toBottomOf="@+id/circleImageView" />
+        app:layout_constraintEnd_toEndOf="@+id/title_card"
+        app:layout_constraintStart_toStartOf="@+id/title_card"
+        app:layout_constraintTop_toBottomOf="@+id/title_card" />
 
     <TextView
         android:id="@+id/subHead"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:textColor="@color/grey"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:text="A OTP will be sent to verify your phone number"
@@ -60,19 +72,22 @@
         android:layout_marginTop="40dp"
         app:cardCornerRadius="20dp"
         app:cardElevation="4dp"
+        android:background="@color/white"
+        android:backgroundTint="@color/white"
         app:layout_constraintEnd_toEndOf="@+id/subHead"
         app:layout_constraintHorizontal_bias="0.348"
         app:layout_constraintStart_toStartOf="@+id/subHead"
         app:layout_constraintTop_toBottomOf="@+id/subHead">
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
+            android:layout_gravity="center"
             android:orientation="vertical">
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5sp"
                 android:orientation="horizontal"
@@ -91,10 +106,11 @@
                     android:id="@+id/editTextPhone"
                     android:layout_width="0dp"
                     android:layout_height="40dp"
-                    android:layout_marginLeft="4dp"
+                    android:layout_marginLeft="2dp"
                     android:background="@drawable/outline"
                     android:layout_weight="3"
                     android:hint="Enter mobile number"
+                    android:textColor="@color/black"
                     android:inputType="phone"
                     android:paddingStart="8dp" />
 
@@ -104,11 +120,11 @@
             <Button
                 android:id="@+id/continueBtn"
                 android:layout_gravity="center"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginTop="6dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="15dp"
                 android:backgroundTint="@color/purple_700"
                 android:text="Continue" />
 

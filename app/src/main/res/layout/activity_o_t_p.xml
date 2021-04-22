@@ -5,21 +5,30 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".OTP">
+    tools:context=".OTPActivity">
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/circleImageView"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-
-        android:layout_margin="16dp"
-        android:src="@drawable/authpageimg"
-        app:civ_border_color="#AEADAD"
-        app:civ_border_width="2dp"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/title_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/skyblue"
+        android:outlineSpotShadowColor="@color/black"
+        app:cardCornerRadius="5dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/circleImageView"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:layout_margin="40dp"
+            android:src="@drawable/authpageimg"
+            app:civ_border_color="#AEADAD"
+            app:civ_border_width="2dp" />
+
+    </androidx.cardview.widget.CardView>
 
 
     <TextView
@@ -29,13 +38,13 @@
         android:layout_marginTop="12dp"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:text="Verify +91-7441147546"
+        android:text="@string/number_sample"
         android:textColor="@color/black"
-        android:textSize="26dp"
+        android:textSize="26sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/circleImageView"
-        app:layout_constraintStart_toStartOf="@+id/circleImageView"
-        app:layout_constraintTop_toBottomOf="@+id/circleImageView" />
+        app:layout_constraintEnd_toEndOf="@+id/title_card"
+        app:layout_constraintStart_toStartOf="@+id/title_card"
+        app:layout_constraintTop_toBottomOf="@+id/title_card" />
 
     <TextView
         android:id="@+id/subHead"
@@ -44,30 +53,34 @@
         android:layout_marginTop="8dp"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:text="OTP sent to entered phone number"
-        android:textSize="16dp"
+        android:text="@string/subHead_otp"
+        android:textSize="16sp"
+        android:textColor="@color/grey"
         app:layout_constraintEnd_toEndOf="@+id/VerificationTitle"
-        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/VerificationTitle"
         app:layout_constraintTop_toBottomOf="@+id/VerificationTitle" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/number_palette"
+        android:background="@color/white"
+        android:backgroundTint="@color/white"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="40dp"
         app:cardCornerRadius="20dp"
         app:cardElevation="4dp"
         app:layout_constraintEnd_toEndOf="@+id/subHead"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/subHead"
         app:layout_constraintTop_toBottomOf="@+id/subHead">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
             android:layout_gravity="center"
+            android:layout_margin="5dp"
             android:orientation="vertical">
 
             <com.mukesh.OtpView
@@ -75,22 +88,23 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:inputType="number"
+                android:clickable="true"
                 android:itemBackground="@color/fade"
-                android:textColor="@android:color/white"
+                android:textColor="@android:color/black"
                 app:OtpItemCount="6"
-                app:OtpLineColor="@color/green"
-                app:OtpViewType="line"/>
+                app:OtpLineColor="@color/grey"
+                app:OtpViewType="line" />
 
             <Button
                 android:id="@+id/continueBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
                 android:layout_marginLeft="5dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginRight="5dp"
-                android:textSize="17dp"
                 android:backgroundTint="@color/purple_500"
-                android:text="Verify" />
+                android:text="Verify"
+                android:textSize="18dp" />
 
 
         </LinearLayout>

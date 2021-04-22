@@ -2,6 +2,7 @@ package app.tarsun.topchat;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+
 import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.View;
@@ -32,6 +33,7 @@ public class Register_Activity extends AppCompatActivity implements AdapterView.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_);
+
         firstname = findViewById(R.id.userFirstname);
         lastname = findViewById(R.id.userLastName);
         dateOfBirth = findViewById(R.id.dateOfBirth);
