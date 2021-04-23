@@ -13,6 +13,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -23,11 +24,11 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class Register_Activity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     EditText firstname,lastname,email;
-    TextView dateOfBirth;
+    TextView dateOfBirth,genderHeading;
     Button submit;
     FloatingActionButton editImage;
     CircleImageView userImage;
-    String fiestnameString,lastnameString,emailString,dayOfBirthString,monthOfBirthString,yearOfBirthString;
+    String fiestnameString,lastnameString,emailString,dateOfBirthString,genderString="--Select--";
     Spinner gender;
     DatePickerDialog.OnDateSetListener setListener;
 
@@ -42,6 +43,7 @@ public class Register_Activity extends AppCompatActivity implements AdapterView.
         email = findViewById(R.id.userEmail);
         submit = findViewById(R.id.submit);
         gender = findViewById(R.id.gender);
+        genderHeading = findViewById(R.id.genderHeading);
         editImage = findViewById(R.id.editImage);
         userImage = findViewById(R.id.userImage);
         Calendar calendar = Calendar.getInstance();
@@ -77,17 +79,26 @@ public class Register_Activity extends AppCompatActivity implements AdapterView.
                 fiestnameString = firstname.getText().toString();
                 lastnameString = lastname.getText().toString();
                 emailString = email.getText().toString();
+                if (genderString.equals("--Select--")){
+                    genderHeading.setError("Please Select The Gender");
+                    return;
+                }
+                dateOfBirthString = dateOfBirth.getText().toString();
+                if (dateOfBirthString.equals("Calender")){
+                    dateOfBirth.setError("Required");
+                    return;
+                }
             }
         });
     }
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        if (parent.getId() == R.id.gender);
+        genderString = parent.getSelectedItem().toString();
     }
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
-
+        Toast.makeText(this, "Please Select The Gender", Toast.LENGTH_SHORT).show();
     }
 }
