@@ -67,6 +67,7 @@ public class Register_Activity extends AppCompatActivity implements AdapterView.
         dateOfBirth.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 DatePickerDialog datePickerDialog = new DatePickerDialog(
                         Register_Activity.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
