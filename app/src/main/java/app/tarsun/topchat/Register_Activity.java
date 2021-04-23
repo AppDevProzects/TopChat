@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -33,7 +34,7 @@ public class Register_Activity extends AppCompatActivity implements AdapterView.
     Button submit;
     FloatingActionButton editImage;
     CircleImageView userImage;
-    String fiestnameString,lastnameString,emailString,dateOfBirthString,genderString="--Select--",userID;
+    String fiestnameString,lastnameString,emailString,dateOfBirthString,genderString="--Select--",userID,phoneNumber;
     Spinner gender;
     FirebaseFirestore fStore;
     FirebaseAuth fAuth;
@@ -55,6 +56,7 @@ public class Register_Activity extends AppCompatActivity implements AdapterView.
         gender = findViewById(R.id.gender);
         genderHeading = findViewById(R.id.genderHeading);
         editImage = findViewById(R.id.editImage);
+        phoneNumber = getIntent().getStringExtra("phoneNumber");
         userImage = findViewById(R.id.userImage);
         Calendar calendar = Calendar.getInstance();
 
@@ -113,13 +115,16 @@ public class Register_Activity extends AppCompatActivity implements AdapterView.
                 user.put("DateOfBirth",dateOfBirthString);
                 user.put("email",emailString);
                 user.put("gender",genderString);
+                user.put("phone",phoneNumber);
                 documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
                         
                     }
                 });
-
+                Intent intent = new Intent(Register_Activity.this,MainActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
     }
