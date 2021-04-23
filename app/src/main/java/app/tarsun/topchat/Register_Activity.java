@@ -28,7 +28,7 @@ public class Register_Activity extends AppCompatActivity implements AdapterView.
     Button submit;
     FloatingActionButton editImage;
     CircleImageView userImage;
-    String fiestnameString,lastnameString,emailString,dateOfBirthString,genderString="--Select--";
+    String fiestnameString,lastnameString,emailString,dateOfBirthString,genderString;
     Spinner gender;
     DatePickerDialog.OnDateSetListener setListener;
 
@@ -72,13 +72,19 @@ public class Register_Activity extends AppCompatActivity implements AdapterView.
         ArrayAdapter adapter = new ArrayAdapter(this, R.layout.spinner_item_layout,genderchoose);
         adapter.setDropDownViewResource(R.layout.spinner_item_layout);
         gender.setAdapter(adapter);
+        gender.setOnItemSelectedListener(this);
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                fiestnameString = firstname.getText().toString();
-                lastnameString = lastname.getText().toString();
-                emailString = email.getText().toString();
+                fiestnameString = firstname.getText().toString().trim();
+                lastnameString = lastname.getText().toString().trim();
+                emailString = email.getText().toString().trim();
+                System.out.println(genderString);
+                if (fiestnameString.equals("")) {
+                    firstname.setError("Nmae Required");
+                    return;
+                }
                 if (genderString.equals("--Select--")){
                     genderHeading.setError("Please Select The Gender");
                     return;
@@ -94,7 +100,9 @@ public class Register_Activity extends AppCompatActivity implements AdapterView.
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        System.out.println(genderString);
         genderString = parent.getSelectedItem().toString();
+
     }
 
     @Override
