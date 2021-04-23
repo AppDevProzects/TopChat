@@ -68,7 +68,9 @@
         android:backgroundTint="@color/white"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         app:cardCornerRadius="10dp"
         app:cardElevation="2dp"
         app:layout_constraintEnd_toEndOf="@+id/subHead"
@@ -96,15 +98,18 @@
 
             <Button
                 android:id="@+id/continueBtn"
-                android:layout_width="match_parent"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginRight="5dp"
-                android:backgroundTint="@color/purple_500"
-                android:text="Continue"
-                android:textSize="18dp" />
-
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="20dp"
+                android:elevation="5dp"
+                android:textStyle="bold"
+                android:textColor="@color/skyBlue"
+                android:backgroundTint="@color/white"
+                android:text="Verify"
+                android:textSize="16dp"/>
 
         </LinearLayout>
 

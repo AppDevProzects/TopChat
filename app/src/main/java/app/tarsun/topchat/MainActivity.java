@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openWelcome(View view) {
-        Intent intent = new Intent(this,Intropage.class);
+        Intent intent = new Intent(this,IntroPageActivity.class);
         startActivity(intent);
     }
 }

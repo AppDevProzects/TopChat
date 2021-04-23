@@ -99,8 +99,15 @@ public class OTPActivity extends AppCompatActivity {
         binding.continueBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
                 if(!(auth.getCurrentUser().getUid().equals(""))){
-                    startActivity(new Intent(OTPActivity.this,Register_Activity.class));
+                    Intent intent = new Intent(OTPActivity.this,Register_Activity.class);
+                    intent.putExtra("phoneNumber",phoneNumber);
+                    startActivity(intent);
                     finish();
                 }else{
                     Toast.makeText(OTPActivity.this, "Please OTP and verify", Toast.LENGTH_SHORT).show();
@@ -109,4 +116,5 @@ public class OTPActivity extends AppCompatActivity {
             }
         });
     }
+
 }

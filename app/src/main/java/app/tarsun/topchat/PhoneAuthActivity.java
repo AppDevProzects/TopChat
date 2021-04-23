@@ -39,6 +39,7 @@ public class PhoneAuthActivity extends AppCompatActivity {
                 intent.putExtra("code","+"+binding.ccp.getFullNumber());
                 intent.putExtra("number",binding.editTextPhone.getText().toString());
                 startActivity(intent);
+                finish();
             }
         });
     }

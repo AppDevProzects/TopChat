@@ -111,11 +111,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/userFirstname"
-            android:textColor="@color/black"
-            android:backgroundTint="@color/grey"
             android:layout_marginLeft="25dp"
             android:layout_marginTop="30dp"
-            android:layout_marginRight="25dp">
+            android:layout_marginRight="25dp"
+            android:backgroundTint="@color/grey"
+            android:textColor="@color/black">
 
         </EditText>
 
@@ -136,14 +136,18 @@
 
         <Spinner
             android:id="@+id/gender"
-            android:layout_width="match_parent"
+            android:layout_width="359dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/userLastName"
-            android:layout_marginBottom="15dp"
+            android:layout_alignStart="@+id/userLastName"
+            android:layout_alignEnd="@+id/userLastName"
+            android:layout_marginStart="0dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="2dp"
             android:layout_marginRight="25dp"
-            android:textColor="@color/black"
-            android:layout_marginTop="38dp"
-            android:layout_marginLeft="25dp"></Spinner>
+            android:layout_marginBottom="15dp"
+            android:textColor="@color/black"></Spinner>
 
         <TextView
             android:id="@+id/textDOB"

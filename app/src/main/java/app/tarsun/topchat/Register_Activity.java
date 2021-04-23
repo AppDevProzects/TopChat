@@ -47,6 +47,7 @@ public class Register_Activity extends AppCompatActivity implements AdapterView.
         editImage = findViewById(R.id.editImage);
         userImage = findViewById(R.id.userImage);
         Calendar calendar = Calendar.getInstance();
+
         final int year = calendar.get(Calendar.YEAR);
         final int month = calendar.get(Calendar.MONTH);
         final int day = calendar.get(Calendar.DAY_OF_MONTH);
@@ -72,19 +73,13 @@ public class Register_Activity extends AppCompatActivity implements AdapterView.
         ArrayAdapter adapter = new ArrayAdapter(this, R.layout.spinner_item_layout,genderchoose);
         adapter.setDropDownViewResource(R.layout.spinner_item_layout);
         gender.setAdapter(adapter);
-        gender.setOnItemSelectedListener(this);
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                fiestnameString = firstname.getText().toString().trim();
-                lastnameString = lastname.getText().toString().trim();
-                emailString = email.getText().toString().trim();
-                System.out.println(genderString);
-                if (fiestnameString.equals("")) {
-                    firstname.setError("Nmae Required");
-                    return;
-                }
+                fiestnameString = firstname.getText().toString();
+                lastnameString = lastname.getText().toString();
+                emailString = email.getText().toString();
                 if (genderString.equals("--Select--")){
                     genderHeading.setError("Please Select The Gender");
                     return;
@@ -100,9 +95,7 @@ public class Register_Activity extends AppCompatActivity implements AdapterView.
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        System.out.println(genderString);
         genderString = parent.getSelectedItem().toString();
-
     }
 
     @Override
