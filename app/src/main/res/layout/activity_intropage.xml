@@ -33,7 +33,9 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="60dp"
             android:visibility="visible"
-            android:src="@drawable/chaticom"></de.hdodenhof.circleimageview.CircleImageView>
+            app:civ_border_color="#AEADAD"
+            app:civ_border_width="2dp"
+            android:src="@drawable/imageblack"></de.hdodenhof.circleimageview.CircleImageView>
 
         <TextView
             android:id="@+id/appslogen"

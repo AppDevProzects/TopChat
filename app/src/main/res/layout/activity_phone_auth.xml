@@ -10,28 +10,46 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/title_card"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="300dp"
         android:backgroundTint="@color/skyblue"
         android:outlineSpotShadowColor="@color/black"
-        app:cardCornerRadius="5dp"
+        app:cardElevation="5dp"
+        app:cardCornerRadius="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/circleImageView"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_gravity="center"
-            android:layout_margin="40dp"
-            android:src="@drawable/authpageimg"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="60dp"
+            android:src="@drawable/imageblack"
             app:civ_border_color="#AEADAD"
             app:civ_border_width="2dp" />
 
+        <TextView
+            android:id="@+id/appslogen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/circleImageView"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:visibility="visible"
+            android:textColor="@color/white"
+            android:fontFamily="cursive"
+            android:text="A New Gen chatting app"
+            android:textSize="30sp"
+            android:textStyle="italic"></TextView>
+
+        </RelativeLayout>
+
     </androidx.cardview.widget.CardView>
-
-
-
 
     <TextView
         android:id="@+id/VerificationTitle"
@@ -41,8 +59,8 @@
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:text="Verify your phone number"
-        android:textColor="@color/black"
-        android:textSize="26dp"
+        android:textColor="@color/grey"
+        android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/title_card"
         app:layout_constraintStart_toStartOf="@+id/title_card"
@@ -52,10 +70,11 @@
         android:id="@+id/subHead"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="20dp"
         android:textColor="@color/grey"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
+        android:textStyle="italic"
         android:text="A OTP will be sent to verify your phone number"
         android:textSize="16dp"
         android:gravity="center"
@@ -64,7 +83,6 @@
         app:layout_constraintStart_toStartOf="@+id/VerificationTitle"
         app:layout_constraintTop_toBottomOf="@+id/VerificationTitle" />
 
-
     <androidx.cardview.widget.CardView
         android:id="@+id/number_palette"
         android:layout_width="match_parent"
@@ -72,8 +90,8 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginTop="40dp"
-        app:cardCornerRadius="20dp"
-        app:cardElevation="4dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="1dp"
         android:background="@color/white"
         android:backgroundTint="@color/white"
         app:layout_constraintEnd_toEndOf="@+id/subHead"
@@ -108,7 +126,7 @@
                     android:id="@+id/editTextPhone"
                     android:layout_width="0dp"
                     android:layout_height="40dp"
-                    android:layout_marginLeft="2dp"
+                    android:layout_marginLeft="10dp"
                     android:background="@drawable/outline"
                     android:layout_weight="3"
                     android:hint="Enter mobile number"
@@ -118,16 +136,18 @@
 
             </LinearLayout>
 
-
             <Button
                 android:id="@+id/continueBtn"
                 android:layout_gravity="center"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:layout_marginTop="15dp"
-                android:backgroundTint="@color/purple_700"
+                android:layout_marginTop="25dp"
+                android:elevation="5dp"
+                android:textStyle="bold"
+                android:textColor="@color/skyblue"
+                android:backgroundTint="@color/white"
                 android:text="Verify"
                 android:textSize="16dp"/>
 
