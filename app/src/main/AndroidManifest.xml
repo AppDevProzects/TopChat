@@ -11,14 +11,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TopChat">
 
-        <activity android:name=".IntroPageActivity"/>
+        <activity android:name=".Register_Activity"/>
         <activity android:name=".PhoneAuthActivity"
             android:windowSoftInputMode = "stateVisible">
         </activity>
         <activity android:name=".MainActivity"/>
 
         <activity android:name=".OTPActivity"/>
-        <activity android:name=".Register_Activity">
+        <activity android:name=".IntroPageActivity">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
