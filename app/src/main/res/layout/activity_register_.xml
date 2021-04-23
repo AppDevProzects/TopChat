@@ -81,6 +81,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/cardview1"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/grey"
             android:layout_marginTop="75dp"
             android:layout_marginLeft="25dp"
             android:layout_marginRight="25dp">
@@ -104,6 +106,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/userFirstname"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/grey"
             android:layout_marginLeft="25dp"
             android:layout_marginTop="30dp"
             android:layout_marginRight="25dp">
@@ -129,7 +133,7 @@
             android:layout_below="@+id/userLastName"
             android:layout_marginBottom="15dp"
             android:layout_marginRight="25dp"
-            android:layout_marginTop="38dp"
+            android:layout_marginTop="40dp"
             android:layout_marginLeft="25dp"></Spinner>
 
         <EditText
@@ -137,6 +141,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/gender"
+            android:textColor="@color/black"
             android:layout_centerHorizontal="true"
             android:layout_marginLeft="25dp"
             android:layout_marginTop="8dp"
@@ -161,6 +166,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/dateOfBirth"
+            android:textColor="@color/black"
+            android:inputType="textEmailAddress"
+            android:backgroundTint="@color/grey"
             android:layout_marginTop="50dp"
             android:layout_marginLeft="25dp"
             android:layout_marginRight="25dp">

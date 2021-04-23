@@ -3,6 +3,7 @@
 
     
     <string-array name="gender">
+        <item> </item>
         <item>Male</item>
         <item>Female</item>
     </string-array>

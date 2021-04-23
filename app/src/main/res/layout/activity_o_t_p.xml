@@ -19,35 +19,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/circleImageView"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="60dp"
-                android:src="@drawable/imageblack"
-                app:civ_border_color="#AEADAD"
-                app:civ_border_width="2dp" />
-
-            <TextView
-                android:id="@+id/appslogen"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/circleImageView"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="5dp"
-                android:visibility="visible"
-                android:textColor="@color/white"
-                android:fontFamily="cursive"
-                android:text="A New Gen chatting app"
-                android:textSize="30sp"
-                android:textStyle="italic"></TextView>
-
-        </RelativeLayout>
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/circleImageView"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:layout_margin="40dp"
+            android:src="@drawable/authpageimg"
+            app:civ_border_color="#AEADAD"
+            app:civ_border_width="2dp" />
 
     </androidx.cardview.widget.CardView>
 
@@ -56,12 +36,12 @@
         android:id="@+id/VerificationTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:text="@string/number_sample"
-        android:textColor="@color/grey"
-        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:textSize="26sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/title_card"
         app:layout_constraintStart_toStartOf="@+id/title_card"
@@ -71,11 +51,10 @@
         android:id="@+id/subHead"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
+        android:layout_marginTop="8dp"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:text="@string/subHead_otp"
-        android:textStyle="italic"
         android:textSize="16sp"
         android:textColor="@color/grey"
         app:layout_constraintEnd_toEndOf="@+id/VerificationTitle"
@@ -108,7 +87,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:inputType="number"
-                android:layout_marginTop="20dp"
                 android:clickable="true"
                 android:itemBackground="@color/fade"
                 android:textColor="@android:color/black"
@@ -118,18 +96,13 @@
 
             <Button
                 android:id="@+id/continueBtn"
-                android:layout_width="wrap_content"
-                android:layout_gravity="center_horizontal"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
-                android:layout_marginBottom="20dp"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginRight="5dp"
-                android:elevation="4dp"
-                android:textColor="@color/skyBlueBar"
-                android:textStyle="bold"
-                android:backgroundTint="@color/white"
-                android:text="continue"
+                android:backgroundTint="@color/purple_500"
+                android:text="Continue"
                 android:textSize="18dp" />
 
 

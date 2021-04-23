@@ -65,8 +65,8 @@ public class Register_Activity extends AppCompatActivity implements AdapterView.
 
 
         String[] genderchoose = getResources().getStringArray(R.array.gender);
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item,genderchoose);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter adapter = new ArrayAdapter(this, R.layout.spinner_item_layout,genderchoose);
+        adapter.setDropDownViewResource(R.layout.spinner_item_layout);
         gender.setAdapter(adapter);
 
         submit.setOnClickListener(new View.OnClickListener() {
