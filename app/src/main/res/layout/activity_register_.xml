@@ -60,6 +60,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="15dp"
             android:textSize="20sp"
+            android:background="@color/white"
             android:textColor="@color/grey"
             android:fontFamily="cursive">
         </TextView>
@@ -67,45 +68,51 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="First Name"
             android:layout_below="@+id/userDataText"
-            android:layout_marginTop="15dp"
+            android:layout_alignStart="@+id/userFirstname"
+            android:layout_marginStart="4dp"
             android:layout_marginLeft="29dp"
-            android:textSize="20sp"
+            android:layout_marginTop="15dp"
+            android:background="@color/white"
+            android:fontFamily="cursive"
+            android:text="First Name"
             android:textColor="@color/grey"
-            android:fontFamily="cursive">
-        </TextView>
+            android:textSize="20sp"></TextView>
 
         <EditText
             android:id="@+id/userFirstname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/cardview1"
-            android:layout_marginTop="75dp"
             android:layout_marginLeft="25dp"
-            android:textColor="@color/grey"
-            android:layout_marginRight="25dp">
+            android:layout_marginTop="75dp"
+            android:layout_marginRight="25dp"
+            android:backgroundTint="@color/grey"
+            android:textColor="@color/black">
 
         </EditText>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Last Name"
             android:layout_below="@+id/userFirstname"
-            android:layout_marginTop="10dp"
+            android:layout_alignStart="@+id/userLastName"
+            android:layout_marginStart="4dp"
             android:layout_marginLeft="29dp"
-            android:textSize="20sp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white"
+            android:fontFamily="cursive"
+            android:text="Last Name"
             android:textColor="@color/grey"
-            android:fontFamily="cursive">
-        </TextView>
+            android:textSize="20sp"></TextView>
 
         <EditText
             android:id="@+id/userLastName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/userFirstname"
-            android:textColor="@color/grey"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/grey"
             android:layout_marginLeft="25dp"
             android:layout_marginTop="30dp"
             android:layout_marginRight="25dp">
@@ -115,14 +122,16 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Gender"
             android:layout_below="@+id/userLastName"
-            android:layout_marginTop="10dp"
+            android:layout_alignStart="@+id/userLastName"
+            android:layout_marginStart="4dp"
             android:layout_marginLeft="29dp"
-            android:textSize="20sp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white"
+            android:fontFamily="cursive"
+            android:text="Gender"
             android:textColor="@color/grey"
-            android:fontFamily="cursive">
-        </TextView>
+            android:textSize="20sp"></TextView>
 
         <Spinner
             android:id="@+id/gender"
@@ -139,15 +148,17 @@
             android:id="@+id/textDOB"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Date Of Birth"
-            android:textColor="@color/grey"
-            android:textSize="20sp"
-            android:fontFamily="cursive"
             android:layout_below="@id/gender"
+            android:layout_alignStart="@+id/userLastName"
+            android:layout_marginStart="0dp"
             android:layout_marginLeft="25dp"
             android:layout_marginTop="16dp"
-            android:layout_marginRight="25dp">
-        </TextView>
+            android:layout_marginRight="25dp"
+            android:background="@color/white"
+            android:fontFamily="cursive"
+            android:text="Date Of Birth"
+            android:textColor="@color/grey"
+            android:textSize="20sp"></TextView>
 
         <TextView
             android:id="@+id/dateOfBirth"
@@ -169,26 +180,32 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Email"
             android:layout_below="@+id/dateOfBirth"
-            android:layout_marginTop="30dp"
+            android:layout_alignStart="@+id/gender"
+            android:layout_marginStart="4dp"
             android:layout_marginLeft="29dp"
-            android:textSize="20sp"
+            android:layout_marginTop="30dp"
+            android:background="@color/white"
+            android:fontFamily="cursive"
+            android:text="Email"
             android:textColor="@color/grey"
-            android:fontFamily="cursive">
-        </TextView>
+            android:textSize="20sp"></TextView>
 
         <EditText
             android:id="@+id/userEmail"
-            android:layout_width="match_parent"
+            android:layout_width="362dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/dateOfBirth"
-            android:inputType="textEmailAddress"
-            android:textColor="@color/grey"
-            android:layout_marginTop="50dp"
+            android:layout_alignStart="@+id/gender"
+            android:layout_alignEnd="@+id/dateOfBirth"
+            android:layout_marginStart="0dp"
             android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp">
-        </EditText>
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginRight="25dp"
+            android:backgroundTint="@color/grey"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/black"></EditText>
 
         <Button
             android:id="@+id/submit"
