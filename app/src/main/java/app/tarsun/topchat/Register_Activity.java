@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -21,7 +22,8 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class Register_Activity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
-    EditText firstname,lastname,email,dateOfBirth;
+    EditText firstname,lastname,email;
+    TextView dateOfBirth;
     Button submit;
     FloatingActionButton editImage;
     CircleImageView userImage;
