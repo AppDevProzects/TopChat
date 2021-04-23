@@ -2,7 +2,7 @@
     <string name="app_name">TopChat</string>
 
     
-    <string-array name="gender">
+    <string-array name="gender" color="#F228A9FF">
         <item>Male</item>
         <item>Female</item>
     </string-array>
