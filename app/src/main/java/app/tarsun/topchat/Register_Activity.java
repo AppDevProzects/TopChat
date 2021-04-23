@@ -15,9 +15,14 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.Calendar;
+import java.util.HashMap;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -28,8 +33,10 @@ public class Register_Activity extends AppCompatActivity implements AdapterView.
     Button submit;
     FloatingActionButton editImage;
     CircleImageView userImage;
-    String fiestnameString,lastnameString,emailString,dateOfBirthString,genderString;
+    String fiestnameString,lastnameString,emailString,dateOfBirthString,genderString="--Select--",userID;
     Spinner gender;
+    FirebaseFirestore fStore;
+    FirebaseAuth fAuth;
     DatePickerDialog.OnDateSetListener setListener;
 
     @Override
@@ -41,6 +48,9 @@ public class Register_Activity extends AppCompatActivity implements AdapterView.
         lastname = findViewById(R.id.userLastName);
         dateOfBirth = findViewById(R.id.dateOfBirth);
         email = findViewById(R.id.userEmail);
+        fStore = FirebaseFirestore.getInstance();
+        fAuth = FirebaseAuth.getInstance();
+        userID = fAuth.getCurrentUser().getUid();
         submit = findViewById(R.id.submit);
         gender = findViewById(R.id.gender);
         genderHeading = findViewById(R.id.genderHeading);
@@ -68,27 +78,48 @@ public class Register_Activity extends AppCompatActivity implements AdapterView.
             }
         });
 
-
         String[] genderchoose = getResources().getStringArray(R.array.gender);
         ArrayAdapter adapter = new ArrayAdapter(this, R.layout.spinner_item_layout,genderchoose);
         adapter.setDropDownViewResource(R.layout.spinner_item_layout);
         gender.setAdapter(adapter);
+        gender.setOnItemSelectedListener(this);
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                fiestnameString = firstname.getText().toString();
-                lastnameString = lastname.getText().toString();
-                emailString = email.getText().toString();
+                fiestnameString = firstname.getText().toString().trim();
+                lastnameString = lastname.getText().toString().trim();
+                emailString = email.getText().toString().trim();
+                System.out.println(genderString);
+                if (fiestnameString.equals("")) {
+                    firstname.setError(" Name Required ");
+                    return;
+                }
                 if (genderString.equals("--Select--")){
                     genderHeading.setError("Please Select The Gender");
                     return;
                 }
+
                 dateOfBirthString = dateOfBirth.getText().toString();
                 if (dateOfBirthString.equals("Calender")){
                     dateOfBirth.setError("Required");
                     return;
                 }
+                DocumentReference documentReference = fStore.collection("users").document(userID);
+                HashMap<String,Object> user = new HashMap<>();
+                user.put("firstName",fiestnameString);
+                user.put("lastName",lastnameString);
+                System.out.println(dateOfBirthString);
+                user.put("DateOfBirth",dateOfBirthString);
+                user.put("email",emailString);
+                user.put("gender",genderString);
+                documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        
+                    }
+                });
+
             }
         });
     }
