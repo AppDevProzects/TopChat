@@ -5,9 +5,54 @@
     android:layout_height="match_parent"
     tools:context=".ExploreFragment">
 
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/relativeL1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/white">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@color/white"
+                android:src="@drawable/ic_baseline_add_box_24"></ImageButton>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:fontFamily="cursive"
+                android:text="Talk-Chat"
+                android:textColor="@color/black"
+                android:textSize="24dp"
+                android:textStyle="bold"></TextView>
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="12dp"
+                android:layout_marginRight="16dp"
+                android:backgroundTint="@color/white"
+                android:src="@drawable/facecirclesmall"></de.hdodenhof.circleimageview.CircleImageView>
+
+        </RelativeLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/relativeL1"
+            tools:listitem="@layout/explore_friend_image_list">
+        </androidx.recyclerview.widget.RecyclerView>
+
+
+
+    </RelativeLayout>
 
 </FrameLayout>

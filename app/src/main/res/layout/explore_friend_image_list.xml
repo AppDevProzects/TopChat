@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="10dp">
+    
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/userFriendProfile"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:src="@drawable/facecirclesmall"
+        android:layout_margin="10dp">
+    </de.hdodenhof.circleimageview.CircleImageView>
+    
+    <TextView
+        android:id="@+id/frienduserName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="userName"
+        android:layout_toRightOf="@+id/userFriendProfile"
+        android:layout_marginTop="12dp"
+        android:textSize="18dp"
+        android:fontFamily="casual"
+        android:layout_marginLeft="8dp"
+        android:textColor="@color/black">
+    </TextView>
+    
+    <ImageView
+        android:id="@+id/friendUpload"
+        android:layout_width="match_parent"
+        android:layout_height="320dp"
+        android:background="@color/grey"
+        android:backgroundTint="@color/grey"
+        android:src="@drawable/hitdhoni"
+        android:layout_below="@id/userFriendProfile">
+    </ImageView>
+
+    <ImageButton
+        android:id="@+id/likeButton"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:src="@drawable/ic_heartcolored"
+        android:backgroundTint="@color/white"
+        android:layout_below="@id/friendUpload"
+        android:layout_marginLeft="5dp">
+    </ImageButton>
+
+    <ImageButton
+        android:id="@+id/postComment"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:paddingRight="20dp"
+        android:src="@drawable/ic_comment"
+        android:backgroundTint="@color/white"
+        android:layout_below="@+id/friendUpload"
+        android:layout_toRightOf="@+id/likeButton">
+    </ImageButton>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:src="@drawable/ic_baseline_bookmark_border_24"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/friendUpload"
+        android:backgroundTint="@color/white">
+    </ImageButton>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Liked by user1 and 150 others"
+        android:layout_below="@id/likeButton"
+        android:textColor="@color/grey"
+        android:layout_marginLeft="10dp">
+
+    </TextView>
+
+        
+
+</RelativeLayout>
