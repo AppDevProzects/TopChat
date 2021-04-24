@@ -24,6 +24,7 @@ public class IntroPageActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(IntroPageActivity.this,PhoneAuthActivity.class));
+                finish();
             }
         });
     }
