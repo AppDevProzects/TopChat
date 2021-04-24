@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         tabLayout = findViewById(R.id.tabPalette);
         tabChat = findViewById(R.id.tabChats);
         tabExplore = findViewById(R.id.tabExplore);
-        tabStatus = findViewById(R.id.tabExplore);
+        tabStatus = findViewById(R.id.tabStatus);
         viewPager = findViewById(R.id.viewPager);
 
 
