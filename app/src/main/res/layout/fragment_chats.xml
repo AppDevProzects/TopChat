@@ -5,10 +5,31 @@
     android:layout_height="match_parent"
     tools:context=".ChatsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent">
+    <SearchView
+        android:id="@+id/chatSearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/outline"
+        android:paddingLeft="10dp"
+        android:backgroundTint="@color/fade">
+
+    </SearchView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/chatSearch"
+        android:layout_marginTop="20dp"
+        tools:listitem="@layout/chat_list_item">
+    </androidx.recyclerview.widget.RecyclerView>
+
+
+    </RelativeLayout>
 
 </FrameLayout>

@@ -87,6 +87,14 @@ public class Register_Activity extends AppCompatActivity implements AdapterView.
         gender.setAdapter(adapter);
         gender.setOnItemSelectedListener(this);
 
+        editImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
