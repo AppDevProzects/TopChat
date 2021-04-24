@@ -7,16 +7,17 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 public class PageAdapter extends FragmentPagerAdapter {
 
-    private final int numberOfTabs;
+    int numberOfTabs;
 
-    public PageAdapter(@NonNull FragmentManager fm, int numberOfTabs) {
-        super(fm, numberOfTabs);
-        this.numberOfTabs = numberOfTabs;
+    public PageAdapter(@NonNull FragmentManager fm, int numberOftabs) {
+        super(fm, numberOftabs);
+        numberOfTabs = numberOftabs;
     }
 
     @NonNull
     @Override
     public Fragment getItem(int position) {
+        System.out.println(position);
         switch (position){
             case 0:
                 return new ChatsFragment();

@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         tabLayout = findViewById(R.id.tabPalette);
         tabChat = findViewById(R.id.tabChats);
         tabExplore = findViewById(R.id.tabExplore);
-        tabStatus = findViewById(R.id.tabExplore);
+        tabStatus = findViewById(R.id.tabStatus);
         viewPager = findViewById(R.id.viewPager);
 
 
@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
             public void onTabSelected(TabLayout.Tab tab) {
                 viewPager.setCurrentItem(tab.getPosition());
 
-                if(tab.getPosition()==0||tab.getPosition()==1||tab.getPosition()==2){
+                if(tab.getPosition()==0 || tab.getPosition()==1 || tab.getPosition()==2){
                     pageAdapter.notifyDataSetChanged();
                 }
             }
