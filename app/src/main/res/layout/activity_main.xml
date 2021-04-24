@@ -1,36 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    style="@style/Theme.AppCompat.Light.NoActionBar">
+
+    <include
+        layout="@layout/toolbar_layout"/>
 
 
     <com.google.android.material.tabs.TabLayout
-        android:id="@+id/TabPalette"
+        android:id="@+id/tabPalette"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/skyBlue"
+        app:tabSelectedTextColor="@color/white"
+        app:tabIndicatorColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.tabs.TabItem
-            android:id="@+id/TabFriends"
+            android:id="@+id/tabChats"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Friends" />
 
         <com.google.android.material.tabs.TabItem
-            android:id="@+id/TabExplore"
+            android:id="@+id/tabExplore"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Explore" />
 
         <com.google.android.material.tabs.TabItem
-            android:id="@+id/TabStatus"
+            android:id="@+id/tabStatus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Status" />
@@ -48,4 +56,4 @@
 
     </androidx.viewpager.widget.ViewPager>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
