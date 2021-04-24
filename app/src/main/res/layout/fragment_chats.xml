@@ -26,7 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/chatSearch"
         android:layout_marginTop="20dp"
-        tools:listitem="@layout/chat_list_item">
+        tools:listitem="@layout/list_item_chats">
     </androidx.recyclerview.widget.RecyclerView>
 
 

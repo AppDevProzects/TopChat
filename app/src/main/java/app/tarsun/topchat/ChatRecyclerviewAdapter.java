@@ -11,10 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-
-import java.util.ArrayList;
 
 public class ChatRecyclerviewAdapter extends RecyclerView.Adapter<ChatRecyclerviewAdapter.ViewHolder> {
     Context context;
@@ -31,7 +28,7 @@ public class ChatRecyclerviewAdapter extends RecyclerView.Adapter<ChatRecyclervi
     @NonNull
     @Override
     public ChatRecyclerviewAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.chat_list_item,parent,false);
+        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item_chats,parent,false);
         ViewHolder viewHolder = new ViewHolder(view);
         return viewHolder;
     }
