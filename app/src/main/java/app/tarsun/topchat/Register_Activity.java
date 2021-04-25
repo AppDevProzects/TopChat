@@ -157,12 +157,11 @@ public class Register_Activity extends AppCompatActivity implements AdapterView.
                 HashMap<String,Object> user = new HashMap<>();
                 user.put("firstName",fiestnameString);
                 user.put("lastName",lastnameString);
-                System.out.println(dateOfBirthString);
                 user.put("DateOfBirth",dateOfBirthString);
                 user.put("email",emailString);
                 user.put("gender",genderString);
                 user.put("phone",phoneNumber);
-                if(imageUri!=null){
+                if(flag==1){
                     reference.putFile(imageUri).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
@@ -170,12 +169,13 @@ public class Register_Activity extends AppCompatActivity implements AdapterView.
                                 @Override
                                 public void onSuccess(Uri uri) {
                                     String imageUrl = uri.toString();
+                                    System.out.println(imageUrl);
                                     user.put("imageUrl",imageUrl);
                                 }
                             });
                         }
                     });
-                }else{
+                }else if(flag==0){
                     user.put("imageUrl","0");
                 }
                 documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
