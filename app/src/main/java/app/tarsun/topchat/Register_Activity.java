@@ -1,10 +1,16 @@
 package app.tarsun.topchat;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 
+import android.Manifest;
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -16,11 +22,16 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import java.util.Calendar;
 import java.util.HashMap;
@@ -36,9 +47,18 @@ public class Register_Activity extends AppCompatActivity implements AdapterView.
     CircleImageView userImage;
     String fiestnameString,lastnameString,emailString,dateOfBirthString,genderString="--Select--",userID,phoneNumber;
     Spinner gender;
+
     FirebaseFirestore fStore;
     FirebaseAuth fAuth;
+    private FirebaseStorage storage;
+
     DatePickerDialog.OnDateSetListener setListener;
+
+
+    private int PERMISSION_CODE = 175605;
+    private int GALLERY_ACCESS_REQUEST_CODE = 1509;
+    private Uri imageUri;
+    int flag = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,8 +69,11 @@ public class Register_Activity extends AppCompatActivity implements AdapterView.
         lastname = findViewById(R.id.userLastName);
         dateOfBirth = findViewById(R.id.dateOfBirth);
         email = findViewById(R.id.userEmail);
+
         fStore = FirebaseFirestore.getInstance();
         fAuth = FirebaseAuth.getInstance();
+        storage =  FirebaseStorage.getInstance();
+
         userID = fAuth.getCurrentUser().getUid();
         submit = findViewById(R.id.submit);
         gender = findViewById(R.id.gender);
@@ -87,12 +110,26 @@ public class Register_Activity extends AppCompatActivity implements AdapterView.
         gender.setAdapter(adapter);
         gender.setOnItemSelectedListener(this);
 
+
+        StorageReference reference = storage.getReference().child("ProfileImages").child(fAuth.getUid());
         editImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+                    if(checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE)== PackageManager.PERMISSION_DENIED){
+                        String[] permissions = {Manifest.permission.READ_EXTERNAL_STORAGE};
+
+                        requestPermissions(permissions,PERMISSION_CODE);
+                    }else{
+                        getImageFromGallery();
+                    }
+                }else{
+                    getImageFromGallery();
+                }
 
             }
         });
+
 
 
         submit.setOnClickListener(new View.OnClickListener() {
@@ -125,6 +162,22 @@ public class Register_Activity extends AppCompatActivity implements AdapterView.
                 user.put("email",emailString);
                 user.put("gender",genderString);
                 user.put("phone",phoneNumber);
+                if(imageUri!=null){
+                    reference.putFile(imageUri).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
+                            reference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                @Override
+                                public void onSuccess(Uri uri) {
+                                    String imageUrl = uri.toString();
+                                    user.put("imageUrl",imageUrl);
+                                }
+                            });
+                        }
+                    });
+                }else{
+                    user.put("imageUrl","0");
+                }
                 documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
@@ -138,9 +191,48 @@ public class Register_Activity extends AppCompatActivity implements AdapterView.
         });
     }
 
+    private void getImageFromGallery() {
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_PICK);
+        intent.setType("image/*");
+        startActivityForResult(intent,GALLERY_ACCESS_REQUEST_CODE);        
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if(requestCode == PERMISSION_CODE){
+            if(grantResults.length>0 && grantResults[0]==PackageManager.PERMISSION_GRANTED){
+                getImageFromGallery();
+            }else{
+                Toast.makeText(this, "Permission Denied!!\n Felt sad for you that you are unable to use this feature", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(resultCode == RESULT_OK&&requestCode == GALLERY_ACCESS_REQUEST_CODE&& data!=null){
+            if(data.getData()!=null){
+                userImage.setImageURI(data.getData());
+                imageUri = data.getData();
+                flag = 1;
+            }
+        }
+    }
+
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         genderString = parent.getSelectedItem().toString();
+        if(flag==0){
+            if(genderString.equals("Female"))
+            userImage.setImageResource(R.drawable.ic_woman);
+            if(genderString.equals("Male"))
+                userImage.setImageResource(R.drawable.ic_man);
+            if(genderString.equals(("--Select--")))
+                userImage.setImageResource(R.drawable.facecircle);
+        }
     }
 
     @Override
