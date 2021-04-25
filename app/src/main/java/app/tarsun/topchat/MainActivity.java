@@ -1,5 +1,6 @@
 package app.tarsun.topchat;
 
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
@@ -9,6 +10,7 @@ import android.view.View;
 import android.widget.Toolbar;
 
 import com.google.android.material.appbar.CollapsingToolbarLayout;
+import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
 
@@ -19,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
     TabLayout tabLayout;
     TabItem tabChat,tabExplore,tabStatus;
     ViewPager viewPager;
+    NavigationView nav;
+    ActionBarDrawerToggle toggle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
