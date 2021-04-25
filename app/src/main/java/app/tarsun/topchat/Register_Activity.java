@@ -59,6 +59,7 @@ public class Register_Activity extends AppCompatActivity implements AdapterView.
     private int GALLERY_ACCESS_REQUEST_CODE = 1509;
     private Uri imageUri;
     int flag = 0;
+    private static String imageUrl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -168,9 +169,15 @@ public class Register_Activity extends AppCompatActivity implements AdapterView.
                             reference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                 @Override
                                 public void onSuccess(Uri uri) {
-                                    String imageUrl = uri.toString();
+                                    imageUrl = uri.toString();
                                     System.out.println(imageUrl);
                                     user.put("imageUrl",imageUrl);
+                                    documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        @Override
+                                        public void onSuccess(Void aVoid) {
+
+                                        }
+                                    });
                                 }
                             });
                         }
@@ -181,7 +188,7 @@ public class Register_Activity extends AppCompatActivity implements AdapterView.
                 documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-                        
+
                     }
                 });
                 Intent intent = new Intent(Register_Activity.this,MainActivity.class);

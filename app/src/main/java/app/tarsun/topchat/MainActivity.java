@@ -58,8 +58,13 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId())
                 {
+                    case R.id.home :
+                        Toast.makeText(MainActivity.this, "Home selected", Toast.LENGTH_SHORT).show();
+                        drawerLayout.closeDrawer(GravityCompat.START);
+                        break;
+
                     case R.id.notificaton :
-                        Toast.makeText(MainActivity.this, "notificatin selected", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "notification selected", Toast.LENGTH_SHORT).show();
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
 

@@ -6,84 +6,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    android:layout_gravity="start"
-    tools:openDrawer="start"
     android:id="@+id/drawer"
     tools:context=".MainActivity">
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/white">
+    <include
+        layout="@layout/toolbar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-        <androidx.appcompat.widget.Toolbar
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/mainActivityToolbar"
-            app:title="Talk-Chat"
-            app:titleTextColor="@color/grey"
-            android:background="@color/skyBlueBar">
-        </androidx.appcompat.widget.Toolbar>
-
-    </RelativeLayout>
 
     <com.google.android.material.navigation.NavigationView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/navmenu"
         app:menu="@menu/drawer_menu"
         app:headerLayout="@layout/nav_header"
-        android:layout_gravity="start">
-    </com.google.android.material.navigation.NavigationView>
+        android:layout_gravity="start"/>
 
 
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tabPalette"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/skyBlue"
-        app:tabSelectedTextColor="@color/white"
-        app:tabIndicatorColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
 
-        <com.google.android.material.tabs.TabItem
-            android:id="@+id/tabChats"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Friends" />
 
-        <com.google.android.material.tabs.TabItem
-            android:id="@+id/tabExplore"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Explore" />
 
-        <com.google.android.material.tabs.TabItem
-            android:id="@+id/tabStatus"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Status" />
-
-    </com.google.android.material.tabs.TabLayout>
-
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/viewPager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TabPalette">
-
-    </androidx.viewpager.widget.ViewPager>
-
-</LinearLayout>
 
 </androidx.drawerlayout.widget.DrawerLayout>

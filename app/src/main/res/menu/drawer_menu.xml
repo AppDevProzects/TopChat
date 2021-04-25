@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tool="http://schemas.android.com/tools"
-    tool:showIn="navigation_view">
+    >
 
     <group android:checkableBehavior="single">
+        <item android:id="@+id/home"
+            android:icon="@drawable/ic_baseline_home_24"
+            android:title="Home"/>
+
         <item android:id="@+id/notificaton"
             android:icon="@drawable/ic_notification"
+            android:iconTint="@color/black"
             android:title="Notification"></item>
 
         <item android:id="@+id/Requests"
@@ -20,6 +24,7 @@
 
     <item android:title="Help Section">
         <menu>
+            <group android:checkableBehavior="single">
             <item android:id="@+id/setting"
                 android:icon="@drawable/ic_baseline_settings_24"
                 android:title="Setting"></item>
@@ -27,6 +32,7 @@
             <item android:id="@+id/About"
                 android:icon="@drawable/ic_baseline_info_24"
                 android:title="About"></item>
+            </group>
 
         </menu>
     </item>
