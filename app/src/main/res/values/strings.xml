@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">TopChat</string>
+    <string name="open">open</string>
+    <string name="close">close</string>
+
+
 
 
     <string-array name="gender">

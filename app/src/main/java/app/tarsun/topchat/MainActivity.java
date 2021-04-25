@@ -1,12 +1,19 @@
 package app.tarsun.topchat;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.Switch;
+import android.widget.Toast;
 import android.widget.Toolbar;
 
 import com.google.android.material.appbar.CollapsingToolbarLayout;
@@ -23,18 +30,63 @@ public class MainActivity extends AppCompatActivity {
     ViewPager viewPager;
     NavigationView nav;
     ActionBarDrawerToggle toggle;
+    DrawerLayout drawerLayout;
+    MenuItem menuItem;
+    androidx.appcompat.widget.Toolbar navToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        toolbar = findViewById(R.id.toolBar);
         tabLayout = findViewById(R.id.tabPalette);
         tabChat = findViewById(R.id.tabChats);
         tabExplore = findViewById(R.id.tabExplore);
         tabStatus = findViewById(R.id.tabStatus);
         viewPager = findViewById(R.id.viewPager);
+        navToolbar = (androidx.appcompat.widget.Toolbar) findViewById(R.id.mainActivityToolbar);
+        setSupportActionBar(navToolbar);
 
+        nav = (NavigationView) findViewById(R.id.navmenu);
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawer);
+
+        toggle=new ActionBarDrawerToggle(this,drawerLayout,navToolbar,R.string.open,R.string.close);
+        drawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
+
+        nav.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId())
+                {
+                    case R.id.notificaton :
+                        Toast.makeText(MainActivity.this, "notificatin selected", Toast.LENGTH_SHORT).show();
+                        drawerLayout.closeDrawer(GravityCompat.START);
+                        break;
+
+                    case R.id.Requests :
+                        Toast.makeText(MainActivity.this, "Request selected", Toast.LENGTH_SHORT).show();
+                        drawerLayout.closeDrawer(GravityCompat.START);
+                        break;
+
+                    case R.id.bookmarks :
+                        Toast.makeText(MainActivity.this, "bookmarks selected", Toast.LENGTH_SHORT).show();
+                        drawerLayout.closeDrawer(GravityCompat.START);
+                        break;
+
+                    case R.id.setting :
+                        Toast.makeText(MainActivity.this, "setting selected", Toast.LENGTH_SHORT).show();
+                        drawerLayout.closeDrawer(GravityCompat.START);
+                        break;
+
+                    case R.id.About :
+                        Toast.makeText(MainActivity.this, "About selected", Toast.LENGTH_SHORT).show();
+                        drawerLayout.closeDrawer(GravityCompat.START);
+                        break;
+                }
+
+                return true;
+            }
+        });
 
 
         PageAdapter pageAdapter = new PageAdapter(getSupportFragmentManager(),tabLayout.getTabCount());
